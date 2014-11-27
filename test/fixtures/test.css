@@ -1,0 +1,78 @@
+html[lang="de"] .class-de-1,
+html[lang='de'] .class-de-2,
+html[lang=de] .class-de-3 {
+    text-align: center;
+}
+
+html[lang="de"]
+.class-de-4  {
+    font-weight: bold;
+}
+
+html[lang="es"] .class-es {
+    font-size: 10px;
+}
+
+@media only screen and (min-width: 320px) {
+    html[lang="de"] .class-media-de-5,
+    html[lang="de"]
+    .class-media-de-6  {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    html[lang="de"] .class-media-de-7,
+    html[lang="de"]
+    .class-media-de-8  {
+        font-size: 10px;
+    }
+}
+
+
+html[lang="it"] .class-it-1 {
+    line-height: 40px;
+}
+
+.stand-alone-1 {
+    font-style: italic;
+}
+
+html[lang="ru"] .class-ru-1 {
+    font-size: 36px;
+}
+
+html[lang="de"] .class-de-9 {
+    font-size: 18px;
+}
+
+
+@media only screen and (max-width: 1024px) {
+    html[lang="de"] .class-media-de-10 {
+        height: 222px;
+    }
+
+    .stand-alone-media-2 {
+        text-decoration: none;
+    }
+
+    html[lang="de"] .class-media-de-11 {
+        height: 555px;
+    }
+
+    html[lang="ru"] .class-media-ru-2 {
+        height: 333px;
+    }
+}
+
+html[lang="it"] .class-it-2 {
+    font-size: 18px;
+}
+
+html[lang="ru"] .class-ru-3 {
+    font-size: 20px;
+}
+
+.another-class .stand-alone-3 {
+    text-align: center;
+}

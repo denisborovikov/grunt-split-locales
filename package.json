@@ -1,0 +1,50 @@
+{
+  "name": "grunt-split-locales",
+  "description": "Split css file into separate files by css selector html[lang=\"locale\"].",
+  "version": "0.1.0",
+  "homepage": "https://github.com/Metaller/grunt-split-locales",
+  "author": {
+    "name": "Denis Borovikov",
+    "email": "metaller.ru@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Metaller/grunt-split-locales.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Metaller/grunt-split-locales/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/Metaller/grunt-split-locales/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-jshint": "^0.9.2",
+    "grunt-contrib-nodeunit": "^0.3.3"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.5"
+  },
+  "keywords": [
+    "gruntplugin"
+  ],
+  "readme": "# grunt-split-locales\n\n> Split css file into separate files by css selector html[lang=\"locale\"].\n\nE.g. you have a css file with common styles and locales specific styles:\n\n```css\n.reset {\n  marign: 0\n}\n\n.common-style {\n  color: #333;\n}\n\nhtml[lang=\"de\"] .common-style {\n  color: yellow;\n}\n\nhtml[lang=\"ru\"] .common-style {\n  color: red;\n  font-weight: bold;\n}\n```\n\nIn this case plugin produces 3 files: one with common styles and one for each of locales in the source file. `html[lang]` will be removed from selectors.\n\ncommon.css:\n\n```css\n.reset {\n  marign: 0\n}\n\n.common-style {\n  color: #333;\n}\n```\n\nde.css:\n\n```css\n.common-style {\n  color: yellow;\n}\n```\n\nru.css:\n\n```css\n.common-style {\n  color: red;\n  font-weight: bold;\n}\n```\n\nIt works with media queries as well.\n\n\n## SCSS mixin usage example\n\nIf you use SCSS you can use mixin like this:\n\n```scss\n@mixin locale($locale) {\n  @if type_of($locale) == list {\n    @each $lang in $locale {\n      html[lang=\"#{$lang}\"] & {\n        @content;\n      }\n    }\n  } @else {\n    html[lang=\"#{$locale}\"] & {\n      @content;\n    }\n  }\n}\n```\n\nUsage example:\n\n```scss\n.class {\n  width: 475px;\n\n  @include locale(de) {\n    height: 430px;\n  }\n\n  @include locale(ru) {\n    height: 410px;\n  }\n\n  @include locale(it fr es) {\n    height: 415px;\n  }\n}\n```\n\nOutput:\n\n```css\n.class {\n  width: 475px;\n}\n\nhtml[lang=\"de\"] .class {\n  width: 430px;\n}\n\nhtml[lang=\"ru\"] .class {\n  width: 410px;\n}\n\nhtml[lang=\"it\"] .class {\n  width: 415px;\n}\n\nhtml[lang=\"fr\"] .class {\n  width: 415px;\n}\n\nhtml[lang=\"es\"] .class {\n  width: 415px;\n}\n```\n\n## Getting Started\nThis plugin requires Grunt `~0.4.5`\n\nIf you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:\n\n```shell\nnpm install grunt-split-locales --save-dev\n```\n\nOnce the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:\n\n```js\ngrunt.loadNpmTasks('grunt-split-locales');\n```\n\n## The \"split_locales\" task\n\n### Overview\nIn your project's Gruntfile, add a section named `split_locales` to the data object passed into `grunt.initConfig()`.\n\n```js\ngrunt.initConfig({\n  split_locales: {\n    your_target: {\n      // Target-specific file lists.\n    },\n  },\n});\n```\n\n### Usage Examples\n\n#### Default Options\n\n```js\ngrunt.initConfig({\n  split_locales: {\n    options: {},\n    files: {\n      'dest/common.css': ['src/typography.css', 'src/forms.css'],\n    },\n  },\n});\n```\n\n## Contributing\nIn lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).\n\n## Release History\n_(Nothing yet)_\n",
+  "readmeFilename": "README.md",
+  "_id": "grunt-split-locales@0.1.0",
+  "_shasum": "a021e8a1bc6a2604566d4258bc65e0c00b0a57dd",
+  "_resolved": "git://github.com/Metaller/grunt-split-locales.git#a1c64ca39e527a5837e7ed8530c6d368e9d31f61",
+  "_from": "git://github.com/Metaller/grunt-split-locales.git",
+  "dependencies": {
+    "css": "^2.1.0"
+  }
+}

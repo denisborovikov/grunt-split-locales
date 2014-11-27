@@ -1,0 +1,21 @@
+@media only screen and (min-width: 320px) {
+
+}
+
+@media only screen and (max-width: 1024px) {
+
+}
+
+.stand-alone-1 {
+  font-style: italic;
+}
+
+@media only screen and (max-width: 1024px) {
+  .stand-alone-media-2 {
+    text-decoration: none;
+  }
+}
+
+.another-class .stand-alone-3 {
+  text-align: center;
+}
